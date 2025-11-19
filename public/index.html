@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Hall Ticket Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Zen Ticket</h1>
+            <p>Premium Hall Ticket Generator</p>
+        </header>
+
+        <form id="generatorForm">
+            <div class="card">
+                <div class="form-group">
+                    <label for="excelFile">Student Data (Excel)</label>
+                    <div class="file-upload" id="excelUpload">
+                        <input type="file" id="excelFile" name="excelFile" accept=".xlsx, .xls" required>
+                        <div class="file-upload-content">
+                            <span class="icon">📊</span>
+                            <span class="text">Drop Excel file here or click to browse</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="logoFile">College Logo (Optional)</label>
+                    <div class="file-upload" id="logoUpload">
+                        <input type="file" id="logoFile" name="logoFile" accept="image/*">
+                        <div class="file-upload-content">
+                            <span class="icon">🖼️</span>
+                            <span class="text">Drop Logo here or click to browse</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="deptName">Department Name</label>
+                    <input type="text" id="deptName" name="deptName" value="INFORMATION SCIENCE ENGINEERING"
+                        placeholder="Enter Department Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="examName">Exam Name</label>
+                    <input type="text" id="examName" name="examName" value="B.E EXAMINATION JUNE / JULY 2025"
+                        placeholder="Enter Exam Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="semester">Semester (Optional)</label>
+                    <input type="text" id="semester" name="semester" placeholder="e.g., 6th Semester">
+                </div>
+
+                <div class="form-group">
+                    <label>Subject Selection</label>
+                    <div class="radio-group">
+                        <label class="radio-card">
+                            <input type="radio" name="subjectMode" value="excel" checked>
+                            <span class="radio-content">
+                                <span class="radio-title">From Excel</span>
+                                <span class="radio-desc">Use 'Subjects Applied' column</span>
+                            </span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="subjectMode" value="manual">
+                            <span class="radio-content">
+                                <span class="radio-title">Manual Entry</span>
+                                <span class="radio-desc">Enter subjects for all students</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="manualSubjectsSection" class="hidden">
+                    <label>Custom Subjects</label>
+                    <div id="subjectsList">
+                        <!-- Dynamic subjects will be added here -->
+                    </div>
+                    <button type="button" id="addSubjectBtn" class="secondary-btn">+ Add Subject</button>
+                    <p class="hint">Format: Code - Name (e.g., 21CS81 - Machine Learning)</p>
+                </div>
+            </div>
+
+            <button type="submit" id="generateBtn" class="primary-btn">
+                <span class="btn-text">Generate Hall Tickets</span>
+                <div class="loader hidden"></div>
+            </button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
