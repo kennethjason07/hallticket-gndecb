@@ -3,13 +3,9 @@
   functions = "netlify/functions"
   publish = "public"
 
-# Redirect all routes to index.html except function routes
-[[redirects]]
-  from = "/.netlify/*"
-  to = "/.netlify/:splat"
-  status = 200
-
+# SPA redirect - send all non-function routes to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
