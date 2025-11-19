@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('/generate', {
+            const response = await fetch('/.netlify/functions/generate', {
                 method: 'POST',
                 body: formData
             });
