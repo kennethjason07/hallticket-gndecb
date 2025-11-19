@@ -20,8 +20,9 @@
 
     <div class="container">
         <header>
+            <img src="logo_maximus.png" alt="Zen Logo" class="app-logo">
             <h1>Zen Ticket</h1>
-            <p>Premium Hall Ticket Generator</p>
+            <p>hall ticket generator for "GURU NANAK DEV ENGINNERING COLLEGE BIDAR"</p>
         </header>
 
         <form id="generatorForm">
@@ -33,17 +34,6 @@
                         <div class="file-upload-content">
                             <span class="icon">📊</span>
                             <span class="text">Drop Excel file here or click to browse</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="logoFile">College Logo (Optional)</label>
-                    <div class="file-upload" id="logoUpload">
-                        <input type="file" id="logoFile" name="logoFile" accept="image/*">
-                        <div class="file-upload-content">
-                            <span class="icon">🖼️</span>
-                            <span class="text">Drop Logo here or click to browse</span>
                         </div>
                     </div>
                 </div>
@@ -100,6 +90,57 @@
                 <div class="loader hidden"></div>
             </button>
         </form>
+
+        <div class="credits">
+            <p class="credits-title">Developed by</p>
+            <div class="credit-grid">
+                <div class="credit-item">
+                    <span class="name">Kenneth Jason</span>
+                    <span class="dept">ISE Dept</span>
+                </div>
+                <div class="credit-item">
+                    <span class="name">Arshad Patel</span>
+                    <span class="dept">AIML Dept</span>
+                </div>
+                <div class="credit-item">
+                    <span class="name">Abhishek</span>
+                    <span class="dept">ISE Dept</span>
+                </div>
+                <div class="credit-item">
+                    <span class="name">Hanok</span>
+                    <span class="dept">CSE Dept</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Button -->
+    <button id="helpBtn" class="help-btn" title="Help & Instructions">?</button>
+
+    <!-- Help Modal -->
+    <div id="helpModal" class="modal hidden">
+        <div class="modal-content card">
+            <span class="close-modal">&times;</span>
+            <h2>How to Use</h2>
+            <div class="help-section">
+                <p>1. Upload your Student Data Excel file.</p>
+                <p>2. (Optional) Upload your College Logo.</p>
+                <p>3. Verify/Edit Department and Exam details.</p>
+                <p>4. Choose Subject Selection mode (Excel or Manual).</p>
+                <p>5. Click Generate to download hall tickets.</p>
+            </div>
+
+            <h3>Excel Format Requirements</h3>
+            <div class="help-section">
+                <p>The Excel file must have the following columns:</p>
+                <ul class="help-list">
+                    <li><strong>USN</strong>: Student USN</li>
+                    <li><strong>Name</strong>: Student Name</li>
+                    <li><strong>Subjects Applied</strong>: Comma-separated subject codes (if using Excel mode)</li>
+                    <li>Example: <code>21CS51, 21CS52, 21CS53</code></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('generatorForm');
     const excelInput = document.getElementById('excelFile');
-    const logoInput = document.getElementById('logoFile');
     const subjectRadios = document.getElementsByName('subjectMode');
     const manualSection = document.getElementById('manualSubjectsSection');
     const subjectsList = document.getElementById('subjectsList');
@@ -21,15 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 textSpan.textContent = e.target.files[0].name;
             } else {
                 container.classList.remove('has-file');
-                textSpan.textContent = containerId === 'excelUpload' ?
-                    'Drop Excel file here or click to browse' :
-                    'Drop Logo here or click to browse';
+                textSpan.textContent = 'Drop Excel file here or click to browse';
             }
         });
     }
 
     updateFileUpload(excelInput, 'excelUpload');
-    updateFileUpload(logoInput, 'logoUpload');
 
     // Subject Mode Toggle
     subjectRadios.forEach(radio => {
@@ -75,9 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const formData = new FormData();
         formData.append('excelFile', excelInput.files[0]);
-        if (logoInput.files[0]) {
-            formData.append('logoFile', logoInput.files[0]);
-        }
         formData.append('deptName', document.getElementById('deptName').value);
         formData.append('examName', document.getElementById('examName').value);
         formData.append('semester', document.getElementById('semester').value);
@@ -121,6 +114,24 @@ document.addEventListener('DOMContentLoaded', () => {
             generateBtn.disabled = false;
             btnText.textContent = 'Generate Hall Tickets';
             loader.classList.add('hidden');
+        }
+    });
+    // Help Modal Logic
+    const helpBtn = document.getElementById('helpBtn');
+    const helpModal = document.getElementById('helpModal');
+    const closeModal = document.querySelector('.close-modal');
+
+    helpBtn.addEventListener('click', () => {
+        helpModal.classList.remove('hidden');
+    });
+
+    closeModal.addEventListener('click', () => {
+        helpModal.classList.add('hidden');
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === helpModal) {
+            helpModal.classList.add('hidden');
         }
     });
 });
